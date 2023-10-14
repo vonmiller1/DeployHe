@@ -26,8 +26,9 @@ DeployHe/
 ├── src/
 │   ├── main/
 │   │   ├── kotlin/
-│   │   │   │   ├── BackendHerokuApplication.kt
-│   │   │   │   └── controller/HelloWorldController.kt
+│   │   │   └── com/backend/
+│   │   │       ├── BackendHerokuApplication.kt
+│   │   │       └── controller/HelloWorldController.kt
 │   │   └── resources/
 │   │       └── application.properties
 │   └── test/
