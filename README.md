@@ -26,18 +26,18 @@ DeployHe/
 ├── src/
 │   ├── main/
 │   │   ├── kotlin/
-│   │   │   └── com/backend/
+│   │   │   │   ├── BackendHerokuApplication.kt
+│   │   │   │   └── controller/HelloWorldController.kt
 │   │   └── resources/
 │   │       └── application.properties
 │   └── test/
-│       └── kotlin/
+│       └── kotlin/com/backend/BackendHerokuApplicationTests.kt
 ├── pom.xml
 ├── mvnw
 ├── mvnw.cmd
 ├── system.properties
 ├── .gitignore
-├── README.md
-└── LICENSE
+└── README.md
 ```
 
 ## Prerequisites
@@ -55,7 +55,7 @@ Before running or deploying the project, ensure you have:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/DeployHe.git
+git clone https://github.com/vonmiller1/DeployHe.git
 cd DeployHe
 ```
 
@@ -147,7 +147,7 @@ heroku open
 
 ## Configuration Notes
 
-The project includes a `system.properties` file configured for Java 11 and a `server.servlet.context-path=/services` setting in `application.properties`, which makes the API available under the `/services` path.
+The project includes a `system.properties` file configured for Java 11. In `application.properties`, `server.servlet.context-path=/services` places the API under `/services`, and `server.port=${PORT:8080}` uses the platform-provided `PORT` when deployed while defaulting to port 8080 locally.
 
 For Heroku, the platform injects the required `PORT` automatically, so the app can run correctly in the deployed environment without additional manual configuration.
 
