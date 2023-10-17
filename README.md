@@ -17,7 +17,7 @@ DeployHe is intended to help you:
 Before deploying, make sure you have:
 
 - Java 11
-- Maven or Gradle
+- Maven (the Maven Wrapper is included)
 - Git
 - Heroku CLI
 - A Heroku account
@@ -67,13 +67,30 @@ git push heroku master
 my-project/
 ├── src/
 │   └── main/
-│       ├── java/
+│       ├── kotlin/
 │       └── resources/
 │           └── application.properties
+├── src/test/kotlin/
 ├── pom.xml
 ├── system.properties
 ├── .gitignore
 └── README.md
+```
+
+## API Endpoints
+
+The application uses `/services` as its context path:
+
+| Method | Endpoint | Response |
+| --- | --- | --- |
+| `GET` | `/services/hello` | `Hello World` |
+| `GET` | `/services/hello/{name}` | A greeting for the requested name |
+| `GET` | `/services/health` | `{"status":"UP"}` |
+
+Run the test suite with the included Maven Wrapper:
+
+```bash
+./mvnw test
 ```
 
 ## Troubleshooting
