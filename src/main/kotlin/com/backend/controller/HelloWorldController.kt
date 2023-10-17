@@ -16,4 +16,9 @@ class HelloWorldController {
     fun hello(@PathVariable name: String): String {
         return "Hello $name"
     }
+
+    @GetMapping("/health")
+    fun health(): Map<String, String> {
+        return mapOf("status" to "UP")
+    }
 }

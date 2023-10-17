@@ -37,5 +37,13 @@ class BackendHerokuApplicationTests {
 		assertThat(response.body).isEqualTo("Hello Ada")
 	}
 
+	@Test
+	fun `health endpoint reports the application is up`() {
+		val response = restTemplate.getForEntity(url("/health"), String::class.java)
+
+		assertThat(response.statusCode).isEqualTo(HttpStatus.OK)
+		assertThat(response.body).isEqualTo("""{"status":"UP"}""")
+	}
+
 	private fun url(path: String) = "http://localhost:$port/services$path"
 }
